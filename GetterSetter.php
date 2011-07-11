@@ -1,6 +1,6 @@
 <?php
 /**
-* Class implements get/set functionality
+* Class implements basic get/set functionality
 * 
 * @author Vitaly Glibin
 */
