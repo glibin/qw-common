@@ -23,37 +23,37 @@ class Qw_Common_Object extends Qw_Common_GetterSetter
     * @return stdClass
     */
     public function toObject()
-    {    	
+    {        
         $result = new stdClass();
         foreach($this->_object as $key => $value)
         {
-        	$result->{$key} = $this->_convertToObject($value);            
+            $result->{$key} = $this->_convertToObject($value);            
         }
         return $result;        
     }
     
     protected function _convertToObject($object) 
     {
-    	$result = null;
+        $result = null;
         
-		if (is_object($object) && method_exists($object, 'toObject')) 
-		{
-			$result = $object->toObject();
-		}
-		else if (is_array($object)) {
-			$result = array();            	
-			foreach($object as $k => $item) {
-				$result[$k] = $this->convertToObject($item);
-			}
-		}
-		else {
-			$result = $object;
-		}
+        if (is_object($object) && method_exists($object, 'toObject')) 
+        {
+            $result = $object->toObject();
+        }
+        else if (is_array($object)) {
+            $result = array();                
+            foreach($object as $k => $item) {
+                $result[$k] = $this->convertToObject($item);
+            }
+        }
+        else {
+            $result = $object;
+        }
         
         return $result;
     }
     
-	/**
+    /**
     * Converts our class to simple array with recursive check for properties as objects
     * 
     * @return array
@@ -88,10 +88,10 @@ class Qw_Common_Object extends Qw_Common_GetterSetter
     }
     
     public function __clone() {
-    	$this->_object = clone $this->_object;
+        $this->_object = clone $this->_object;
     }
     
     public function __destruct() {
-    	//unset($this->_object);
+        //unset($this->_object);
     }
 }
