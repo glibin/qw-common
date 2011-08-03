@@ -1,1 +1,1 @@
-Initial commit. Many things will appear here soon.
+This library includes many useful PHP classes and utilities.
