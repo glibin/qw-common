@@ -12,7 +12,7 @@
  *
  */
 
-abstract class Qw_  Common_Singleton
+abstract class Qw_Common_Singleton
 {
     /**
      * Instance of this class

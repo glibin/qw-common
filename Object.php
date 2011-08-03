@@ -11,8 +11,7 @@ class Qw_Common_Object extends Qw_Common_GetterSetter
     {
         parent::__construct();
         if (is_array($data))
-        foreach($data as $key => $value)
-        {
+        foreach($data as $key => $value) {
             $this->{$key} = $value;
         }
     }
@@ -25,8 +24,7 @@ class Qw_Common_Object extends Qw_Common_GetterSetter
     public function toObject()
     {        
         $result = new stdClass();
-        foreach($this->_object as $key => $value)
-        {
+        foreach($this->_object as $key => $value) {
             $result->{$key} = $this->_convertToObject($value);            
         }
         return $result;        
@@ -36,8 +34,7 @@ class Qw_Common_Object extends Qw_Common_GetterSetter
     {
         $result = null;
         
-        if (is_object($object) && method_exists($object, 'toObject')) 
-        {
+        if (is_object($object) && method_exists($object, 'toObject')) {
             $result = $object->toObject();
         }
         else if (is_array($object)) {
@@ -61,10 +58,8 @@ class Qw_Common_Object extends Qw_Common_GetterSetter
     public function toArray()
     {
         $result = array();
-        foreach($this->_object as $key => $value)
-        {
-            if (is_object($value) && method_exists($value, 'toArray'))
-            {
+        foreach($this->_object as $key => $value) {
+            if (is_object($value) && method_exists($value, 'toArray')) {
                 $result[$key] = $value->toArray();
             }
             else {
