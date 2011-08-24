@@ -40,7 +40,7 @@ class Qw_Common_Object extends Qw_Common_GetterSetter
         else if (is_array($object)) {
             $result = array();                
             foreach($object as $k => $item) {
-                $result[$k] = $this->convertToObject($item);
+                $result[$k] = $this->_convertToObject($item);
             }
         }
         else {
